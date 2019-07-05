@@ -4,7 +4,6 @@
   # Install python and pip
   RUN apt-get update -y
   RUN apt-get install -y python-pip python-dev build-essential
-  RUN sudo apt install -y openssh-server
 
   COPY requirements.txt /usr/src/app/
 
