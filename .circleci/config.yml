@@ -12,6 +12,12 @@ jobs:
       - store_test_results:
           path: build/test-results
 
+      - run:
+          name: Deploy Over SSH
+          command: |
+            ssh $SSH_USER@$SSH_HOST "<remote deploy command>"
+
+
 
   dockerize:
     machine: true
@@ -35,5 +41,8 @@ workflows:
       - dockerize:
           requires:
             - test
+      - deploy:
+          requires:
+            - dockerize
 
 
