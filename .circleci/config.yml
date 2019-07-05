@@ -32,7 +32,6 @@ jobs:
       - image: circleci/python
 
     steps:
-      - checkout:
       - run:
       name: Deploy Over SSH
       command: ssh $SSH_USER@$SSH_HOST
