@@ -10,13 +10,14 @@
   COPY requirements.txt /usr/src/app/
 
   #Install dependencies
-  RUN pip install -r requirements.txt
+  # can also use workdir
+  RUN pip install -r /usr/src/app/requirements.txt
 
   # Copy files required for the app to run
-  COPY app.py /usr/src/app/
+  COPY . /usr/src/app/
 
   # Declare the port number the container should expose
   EXPOSE 5000
 
   # Run the application
-  CMD ["python", "/usr/src/app/app.py"]
+  CMD ["python", "/usr/src/app/run.py"]
