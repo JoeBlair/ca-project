@@ -1,10 +1,11 @@
   # The base image
-  FROM ubuntu:latest
+  FROM debian:stretch
   
   # Install python and pip
   RUN apt-get update -y
+  RUN apt-get upgrade -y
   RUN apt-get install -y python-pip python-dev build-essential
-  RUN sudo apt install -y openssh-server
+  RUN apt-get install -y openssh-server
 
   COPY requirements.txt /usr/src/app/
 
