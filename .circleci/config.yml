@@ -32,8 +32,8 @@ jobs:
     steps:
       - checkout:
       - run:
-        name: Deploy Over SSH
-        command: ssh $SSH_USER@$SSH_HOST
+          name: Deploy Over SSH
+          command: ssh $SSH_USER@$SSH_HOST
 
 
 
