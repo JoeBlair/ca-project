@@ -26,14 +26,13 @@ jobs:
       - run: docker push $DOCKER_USER/app:$CIRCLE_SHA1
 
   deploy:
-    docker:
-      - image: circleci/python
-
+    machine: true
+    
     steps:
       - checkout:
       - run:
           name: Deploy Over SSH
-          command: ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST
+          command: ssh $SSH_USER@$SSH_HOST "docker pull jbl90/ca_project && docker run jbl90/ca_project"
 
 
 
