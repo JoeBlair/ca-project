@@ -25,10 +25,10 @@ def make_github_issue(title, body=None, labels=None):
     # Add the issue to our repository
     r = session.post(url, json.dumps(issue))
     if r.status_code == 201:
-        print 'Successfully created Issue "%s"' % title
+        print('Successfully created Issue "%s"' % title)
     else:
-        print 'Could not create Issue "%s"' % title
-        print 'Response:', r.content
+        print('Could not create Issue "%s"' % title)
+        print('Response:', r.content)
 
 make_github_issue('Enable Waffle', 'Setup Waffle and close this issue', ['task'])
 make_github_issue('Investigate Python dependencies', 'Fill out requirements.txt', ['task'])
